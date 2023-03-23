@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         Feishu Doc to Markdown Exporter
-// @version      1.0
+// @name:zh-CN   飞书导出Markdown
+// @namespace    https://github.com/Guyungy/FeishuExportMarkdown
+// @version      1.1
 // @description  Export Feishu Docs to Markdown format
-// @author       Your Name
-// @match        https://www.feishu.cn/*
+// @author       Guyungy
+// @match        https://*.feishu.cn/*
 // @grant        none
 // ==/UserScript==
 
@@ -44,6 +46,9 @@
         const exportButton = document.createElement('button');
         exportButton.textContent = 'Export to Markdown';
         exportButton.className = 'export-button';
+        exportButton.style.position = 'fixed';
+        exportButton.style.top = '10px';
+        exportButton.style.right = '10px';
         exportButton.addEventListener('click', () => {
             const content = getDocContent();
             const blob = new Blob([content], {type: 'text/plain;charset=utf-8'});
